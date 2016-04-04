@@ -2,9 +2,9 @@
 return [
     'Blog' => 'Блог',
     'Read more...' => 'Читать далее...',
-    'Author' => 'Автор',
+    'Author:' => 'Автор',
     'Categories' => 'Разделы',
-    'Category' => 'Раздел',
+    'Category:' => 'Раздел',
     'Category ID' => 'Раздел',
     'Create' => 'Создать',
     'Update' => 'Обновить',

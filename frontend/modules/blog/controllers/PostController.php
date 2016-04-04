@@ -30,12 +30,13 @@ class PostController extends Controller
         $post = Post::find()
             ->with(['author', 'tags', 'category'])
             ->where([
-                '{{%blog_post}}.id' => $id,
+                Post::tableName().'.id' => $id,
+                Post::tableName().'.status' => Post::STATUS_ACTIVE,
             ])
         ->one();
 
         if (!$post) {
-            throw new NotFoundHttpException('Страница не найдена');
+            throw new NotFoundHttpException('Такая запись не существует');
         }
 
         return $this->render('view', [
@@ -54,11 +55,9 @@ class PostController extends Controller
 
         $postForm = new PostForm($postModel);
 
-        if ($postForm->load(Yii::$app->request->post())) {
-            if ($post = $postForm->save()) {
-                Yii::$app->session->setFlash('success', 'Пост успешно добавлен');
-                return $this->redirect(['/blog/post/' . $post->id]);
-            }
+        if ($postForm->load(Yii::$app->request->post()) && $postForm->save()) {
+            Yii::$app->session->setFlash('success', 'Пост успешно добавлен');
+            return $this->redirect(['/blog/post/' . $postForm->post->id]);
         }
 
         return $this->render('create', [
@@ -82,7 +81,7 @@ class PostController extends Controller
             ->one();
 
         if (!$postModel) {
-            throw new NotFoundHttpException('Пост не найден');
+            throw new NotFoundHttpException('Такая запись не существует');
         }
 
         $postForm = new PostForm($postModel);
@@ -92,6 +91,8 @@ class PostController extends Controller
             return $this->redirect(['/blog/post/'.$postForm->post->id]);
         }
 
-        return $this->render('update', ['post' => $postForm]);
+        return $this->render('update', [
+            'post' => $postForm,
+        ]);
     }
 }

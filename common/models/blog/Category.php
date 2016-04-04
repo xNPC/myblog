@@ -54,7 +54,7 @@ class Category extends ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getBlogPosts()
+    public function getPosts()
     {
         return $this->hasMany(Post::className(), ['category_id' => 'id']);
     }

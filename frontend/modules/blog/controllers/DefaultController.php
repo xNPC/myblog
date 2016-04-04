@@ -7,6 +7,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use common\models\blog\Post;
 use common\models\blog\Category;
+use yii\web\NotFoundHttpException;
 
 class DefaultController extends Controller
 {
@@ -16,7 +17,8 @@ class DefaultController extends Controller
     public function actionIndex()
     {
         $query = Post::find()
-            ->where(['status' => 10,]);
+            ->where(['status' => POST::STATUS_ACTIVE,])
+            ->orderBy('created_at DESC');
 
         $provider = new ActiveDataProvider([
             'query' => $query,
@@ -35,6 +37,7 @@ class DefaultController extends Controller
      * Список постов по категориям
      * @param $category
      * @return string
+     * @throws NotFoundHttpException
      */
     public function actionCategory($category)
     {
@@ -45,8 +48,12 @@ class DefaultController extends Controller
             ->where(['alias' => $category])
             ->one();
 
-        $query = Post::find()
-            ->where(['category_id' => $categoryModel->id]);
+        if (!$categoryModel) {
+            throw new NotFoundHttpException('Такого раздела не существует!');
+        }
+
+        $query = $categoryModel->getPosts()
+        ->where(['status' => POST::STATUS_ACTIVE,]);
 
         $provider = new ActiveDataProvider([
             'query' => $query,

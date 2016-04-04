@@ -9,6 +9,8 @@ use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
 use yii\widgets\LinkPager;
 
+//$category = $posts;
+
 $this->title = $category ? Html::encode($category) : Yii::t('blog', 'Blog');
 $this->params['breadcrumbs'][] = $category ? ['label' => Yii::t('blog', 'Blog'), 'url' => '/blog'] : $this->title;
 $category ? $this->params['breadcrumbs'][] = $category : false ;

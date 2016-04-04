@@ -1,21 +1,41 @@
 <?php
 return [
-    'Blog' => 'Блог',
-    'Read more...' => 'Читать далее...',
-    'Author:' => 'Автор:',
-    'Categories' => 'Разделы',
-    'Category:' => 'Раздел:',
-    'Category ID' => 'Раздел',
-    'Create' => 'Создать',
-    'Update' => 'Обновить',
-    'Date:' => 'Дата:',
-    'Tags:' => 'Метки:',
-    'Create post' => 'Создать запись',
-    'Update post' => 'Изменить пост',
-    'Title' => 'Заголовок',
-    'Status' => 'Статус',
-    'Content' => 'Текст',
-    'Inactive' => 'Черновик',
-    'Active' => 'Опубликовано',
-    'Deleted' => 'Удалено',
+    /**
+     * Other
+     */
+    'Blog'          =>  'Блог',
+    'Categories'    =>  'Разделы',
+    'Read more...'  =>  'Читать далее...',
+
+    /**
+     * Form
+     */
+    'Title'         =>  'Заголовок',
+    'Status'        =>  'Статус',
+    'Content'       =>  'Текст',
+    'Category ID'   =>  'Раздел',
+
+    /**
+     * Post statuses
+     */
+    'Inactive'  =>  'Черновик',
+    'Active'    =>  'Опубликовано',
+    'Deleted'   =>  'Удалено',
+
+    /**
+     * CRUD
+     */
+    'Create'        =>  'Создать',
+    'Update'        =>  'Обновить',
+    'Create post'   =>  'Создать запись',
+    'Update post'   =>  'Изменить запись',
+
+    /**
+     * Post info
+     */
+    'Author:'   =>  'Автор:',
+    'Category:' =>  'Раздел:',
+    'Date:'     =>  'Дата:',
+    'Tags:'     =>  'Метки:',
+
 ];

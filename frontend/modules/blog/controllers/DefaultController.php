@@ -17,7 +17,8 @@ class DefaultController extends Controller
     public function actionIndex()
     {
         $query = Post::find()
-            ->where(['status' => POST::STATUS_ACTIVE,])
+            ->with('author', 'category')
+            ->andWhere([Post::tableName().'.status' => POST::STATUS_ACTIVE])
             ->orderBy('created_at DESC');
 
         $provider = new ActiveDataProvider([
@@ -45,7 +46,7 @@ class DefaultController extends Controller
          * @var $categoryModel \common\models\blog\Category
          */
         $categoryModel = Category::find()
-            ->where(['alias' => $category])
+            ->andWhere(['alias' => $category])
             ->one();
 
         if (!$categoryModel) {
@@ -53,7 +54,9 @@ class DefaultController extends Controller
         }
 
         $query = $categoryModel->getPosts()
-        ->where(['status' => POST::STATUS_ACTIVE,]);
+            ->with('author', 'category')
+            ->andWhere([Post::tableName().'.status' => Post::STATUS_ACTIVE])
+            ->orderBy('created_at DESC');
 
         $provider = new ActiveDataProvider([
             'query' => $query,

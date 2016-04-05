@@ -5,6 +5,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
+use yii\helpers\Markdown;
 
 ?>
 <h2>
@@ -20,7 +21,7 @@ use yii\helpers\HtmlPurifier;
     <?= Yii::t('blog', 'Date:'); ?> <?= Yii::$app->formatter->asDate($post->updated_at, 'long'); ?>
 </div>
 <div class="post-anons">
-    <?= HtmlPurifier::process($post->anons); ?>
+    <?= HtmlPurifier::process(Markdown::process($post->anons)); ?>
 </div>
 <div class="read-more">
     <?= Html::a(Yii::t('blog', 'Read more...'),

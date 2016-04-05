@@ -5,6 +5,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\HtmlPurifier;
+use yii\helpers\Markdown;
 
 $this->title = $post->title;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('blog', 'Blog'), 'url' => '/blog'];
@@ -23,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= Yii::t('blog', 'Date:'); ?> <?= Yii::$app->formatter->asDate($post->updated_at, 'long'); ?>
 </div>
 <div class="post-content">
-    <?= HtmlPurifier::process($post->content); ?>
+    <?= HtmlPurifier::process(Markdown::process($post->content)); ?>
 </div>
 <div class="post-tags">
     <?= Yii::t('blog', 'Tags:'); ?>

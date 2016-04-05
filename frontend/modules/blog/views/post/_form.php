@@ -1,5 +1,6 @@
 <?php
 
+use ijackua\lepture\Markdowneditor;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\widgets\ActiveForm;
@@ -15,16 +16,17 @@ use common\models\blog\Category;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($post, 'title') ?>
-    <div class="row"><div class="col-xs-3">
+
     <?= $form->field($post, 'category_id')->dropDownList(ArrayHelper::map(Category::find()->OrderBy('name')->all(),'id', 'name')) ?>
-    </div><div class="col-xs-3">
+
     <?= $form->field($post, 'status')->dropDownList(Post::getStatuses()) ?>
-    </div></div>
-    <?= $form->field($post, 'content')->textarea(['rows' => 10]) ?>
+
+    <?= $form->field($post, 'content', [
+        'template' => "{label}\n{error}\n{input}\n{hint}"
+    ])->widget(Markdowneditor::className()) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('blog', $post->post->isNewRecord ? 'Create' : 'Update'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::submitButton(Yii::t('blog', 'Предпросмотр'), ['class' => 'btn btn-primary']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 

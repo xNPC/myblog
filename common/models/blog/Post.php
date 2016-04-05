@@ -3,6 +3,7 @@
 namespace common\models\blog;
 
 use Yii;
+use yii\behaviors\SluggableBehavior;
 use \yii\db\ActiveRecord;
 use common\models\User;
 use yii\behaviors\BlameableBehavior;
@@ -54,6 +55,12 @@ class Post extends ActiveRecord
                 'createdByAttribute' => 'author_id',
                 'updatedByAttribute' => false,
             ],
+            [
+                'class' => SluggableBehavior::className(),
+                'attribute' => 'title',
+                'slugAttribute' => 'alias',
+                'immutable' => true,
+            ]
         ];
     }
 

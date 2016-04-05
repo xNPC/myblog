@@ -76,17 +76,7 @@ class PostForm extends Model
             $this->post->status = $this->status;
             $this->post->content = $this->content ? str_replace(Post::CUT_STR, '', $this->content) : null;
 
-
-            $this->post->alias = $this->title;
-
-            /*if ($this->post->isNewRecord)
-                $this->post->created_at = time();
-
-            $this->post->updated_at = time();*/
-
             $this->post->anons = $this->getAnons();
-
-            /*$this->post->author_id = 1;*/
 
             if ($this->post->save()) {
                 return $this->post;

@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= Yii::t('blog', 'Date:'); ?> <?= Yii::$app->formatter->asDate($post->updated_at, 'long'); ?>
 </div>
 <div class="post-content">
-    <?= HtmlPurifier::process(Markdown::process($post->content)); ?>
+    <?= HtmlPurifier::process(Markdown::process($post->content, 'gfm')); ?>
 </div>
 <div class="post-tags">
     <?= Yii::t('blog', 'Tags:'); ?>

@@ -21,7 +21,7 @@ use yii\helpers\Markdown;
     <?= Yii::t('blog', 'Date:'); ?> <?= Yii::$app->formatter->asDate($post->updated_at, 'long'); ?>
 </div>
 <div class="post-anons">
-    <?= HtmlPurifier::process(Markdown::process($post->anons)); ?>
+    <?= HtmlPurifier::process(Markdown::process($post->anons, 'gfm')); ?>
 </div>
 <div class="read-more">
     <?= Html::a(Yii::t('blog', 'Read more...'),

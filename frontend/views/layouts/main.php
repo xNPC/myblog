@@ -21,6 +21,9 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
+    <link rel="stylesheet" href="/css/styles/vs.css">
+    <script src="/css/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>

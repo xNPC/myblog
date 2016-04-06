@@ -29,6 +29,16 @@ return [
             'errorAction' => 'site/error',
         ],
 
+        'view' => [
+            'theme' => [
+                'basePath' => '@frontend/themes/classic',
+                'baseUrl' => '@frontend/themes/classic',
+                'pathMap' => [
+                    '@frontend/views' => '@frontend/themes/classic',
+                ],
+            ],
+        ],
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,

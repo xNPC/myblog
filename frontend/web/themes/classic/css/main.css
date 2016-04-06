@@ -1,0 +1,117 @@
+/****************************/
+/*
+/* File Style
+/*
+/****************************/
+html {
+    font-size: 14px;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+body {
+    font-size: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {font-weight: 700;}
+h1 {font-size: 2em;}
+h2 {font-size: 1.8em;}
+h3 {font-size: 1.6em;}
+h4 {font-size: 1.4em;}
+h5 {font-size: 1.2em;}
+h6 {font-size: 1em;}
+
+p {
+    margin: 1em 0;
+}
+
+a {
+    color: #008bcb;
+}
+
+a:hover {
+    color: #8cbf26;
+}
+
+input[type="text"], input[type="password"], textarea {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    border: 1px solid #79a9c2;
+    font-size: 1em;
+    padding: 0.2em 0.3em 0.3em;
+    width: 70%;
+}
+
+input:invalid {
+    border: 1px solid red;
+}
+
+input[type="text"], input[type="password"] {
+    line-height: 1.5;
+}
+
+textarea {
+    font-family: Verdana, Arial, sans-serif;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
+    border: 1px solid #8cbf26;
+}
+
+::selection {background: #fff2a8;}
+::-moz-selection {background: #fff2a8;}
+
+.wrapper {
+    width: 950px;
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+}
+
+.logo, .logo-footer {
+    font-size: 2em;
+    font-weight: bold;
+    color: #555;
+    text-align: left;
+    height: 50px;
+    padding-top: 11px;
+}
+
+.top-menu {
+    text-align: center;
+    margin: 20px auto;
+}
+
+ul.top-menu li {
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.top-menu {
+    font-size: 1.4em;
+}
+
+.page {
+    display: inline-block;
+    width: 700px;
+    border: 0 black solid;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.page ol {
+    list-style: decimal;
+    margin-left: 2em;
+}
+
+.page ul {
+    margin-left: 1em;
+}
+
+.rightcolumn {
+    display: inline-block;
+    width: 200px;
+    float: right;
+}

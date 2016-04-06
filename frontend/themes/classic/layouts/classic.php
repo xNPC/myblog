@@ -6,12 +6,12 @@
 use yii\helpers\Html;
 use yii\widgets\Menu;
 use yii\widgets\Breadcrumbs;
-use frontend\assets\AppAsset;
+use frontend\assets\ClassicAsset;
 use frontend\modules\blog\widgets\Tags;
 use frontend\modules\blog\widgets\Category;
 use common\widgets\Alert;
 
-AppAsset::register($this);
+ClassicAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -29,35 +29,33 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
+<div class="wrapper">
+    <header>
+        <div class="logo">< Style Page ></div>
+    </header>
+    <div class="page">
+    <nav>
     <?php
 
     $menuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
+        ['label' => 'MyBlog.ru', 'url' => ['/']],
         ['label' => 'Блог', 'url' => ['/blog']],
         ['label' => 'About', 'url' => ['/site/about']],
-        ['label' => 'Contact', 'url' => ['/site/contact']],
+        ['label' => 'Контакты', 'url' => ['/site/contact']],
     ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Signup', 'url' => ['/site/signup']];
         $menuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
-        /*$menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
-            . Html::submitButton(
-                'Logout (' . Yii::$app->user->identity->username . ')',
-                ['class' => 'btn btn-link']
-            )
-            . Html::endForm()
-            . '</li>';*/
-        $menuItems[] = ['label' => 'Выйти('.Yii::$app->user->identity->username.')', 'url' => '/site/logout'];
+        $menuItems[] = ['label' => 'Выйти ('.Yii::$app->user->identity->username .')', 'url'=>['/site/logout'], 'template' => '<a href="{url}" data-method="post">{label}</a>'];
     }
     echo Menu::widget([
-        'options' => ['class' => 'menu'],
+        'options' => ['class' => 'top-menu'],
         'items' => $menuItems,
     ]);
 
     ?>
+    </nav>
 
     <div class="container">
         <?= Breadcrumbs::widget([
@@ -66,6 +64,7 @@ AppAsset::register($this);
         <?= Alert::widget() ?>
         <?= $content ?>
     </div>
+</div>
     <div class="rightcolumn">
         <div>
             <p><?= Html::a(Yii::t('blog', 'Create post'), ['/blog/post/create'], ['class' => 'btn btn-primary']); ?></p>
@@ -84,17 +83,17 @@ AppAsset::register($this);
             ?>
         </div>
     </div>
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-left">&copy; My Blog <?= date('Y') ?></p>
+
+            <p class="pull-right"><?= Yii::powered() ?></p>
+        </div>
+        <div class="logo-footer">
+            < / Style Page >
+        </div>
+    </footer>
 </div>
-
-
-<!--<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
--->
 
 <?php $this->endBody() ?>
 </body>

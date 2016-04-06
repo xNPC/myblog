@@ -56,6 +56,7 @@ return [
 
     ],
     'language' => 'ru-RU',
+    'layout' => 'classic',
     'modules' => [
         'blog' => [
             'class' => 'frontend\modules\blog\Module',

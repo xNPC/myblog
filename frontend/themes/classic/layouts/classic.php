@@ -56,13 +56,14 @@ ClassicAsset::register($this);
 
     ?>
     </nav>
-
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>
         <?= Alert::widget() ?>
-        <?= $content ?>
+        <div class="content">
+            <?= $content ?>
+        </div>
     </div>
 </div>
     <div class="rightcolumn">
@@ -94,7 +95,6 @@ ClassicAsset::register($this);
         </div>
     </footer>
 </div>
-
 <?php $this->endBody() ?>
 </body>
 </html>

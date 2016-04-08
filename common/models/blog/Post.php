@@ -35,7 +35,7 @@ class Post extends ActiveRecord
     const STATUS_ACTIVE     =   10;
     const STATUS_DELETED    =   20;
 
-    const CUT_STR = '<разделитель>';
+    const CUT_STR = '<cut>';
 
     /**
      * @inheritdoc

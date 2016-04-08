@@ -13,7 +13,11 @@ use common\models\blog\Category;
 ?>
 <div class="form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'fieldConfig' => [
+            'template' => "{label}\n{error}\n{hint}\n{input}"
+        ]
+    ]); ?>
 
     <?= $form->field($post, 'title') ?>
 
@@ -21,12 +25,11 @@ use common\models\blog\Category;
 
     <?= $form->field($post, 'status')->dropDownList(Post::getStatuses()) ?>
 
-    <?= $form->field($post, 'content', [
-        'template' => "{label}\n{error}\n{input}\n{hint}"
-    ])->widget(Markdowneditor::className()) ?>
+    <?= $form->field($post, 'content')
+        ->widget(Markdowneditor::className()) ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('blog', $post->post->isNewRecord ? 'Create' : 'Update'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('blog', $post->post->isNewRecord ? 'Create' : 'Update'), ['class' => 'button button-classic button-big']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 

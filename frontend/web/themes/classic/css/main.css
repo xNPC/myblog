@@ -13,15 +13,15 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {font-weight: 700;}
-h1 {font-size: 2em;}
-h2 {font-size: 1.8em;}
-h3 {font-size: 1.6em;}
+h1 {font-size: 2em; margin: 14px 0; line-height: 1.2;}
+h2 {font-size: 1.8em; margin-bottom: 14px; line-height: 1.2;}
+h3 {font-size: 1.6em; margin-bottom: 14px; line-height: 1.2;}
 h4 {font-size: 1.4em;}
 h5 {font-size: 1.2em;}
 h6 {font-size: 1em;}
 
 p {
-    margin: 1em 0;
+    margin-bottom: 1em;
 }
 
 a {
@@ -68,6 +68,9 @@ textarea {
 input[type="text"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
     border: 1px solid #8cbf26;
     box-shadow: inset 0 1px 1px rgba(121, 169, 194, .175), 0 0 8px rgba(140, 191, 38, .6);
+    -webkit-box-shadow: inset 0 1px 1px rgba(121, 169, 194, .175), 0 0 8px rgba(140, 191, 38, .6);
+    -moz-box-shadow: inset 0 1px 1px rgba(121, 169, 194, .175), 0 0 8px rgba(140, 191, 38, .6);
+    -o-box-shadow: inset 0 1px 1px rgba(121, 169, 194, .175), 0 0 8px rgba(140, 191, 38, .6);
 }
 
 label {
@@ -147,6 +150,45 @@ div.form-group {
     margin-bottom: 1em;
 }
 
+.content .pagination {
+    list-style: none;
+    margin: 2em 0;
+}
+
+.pagination>li {
+    display: inline-block;
+}
+
+.pagination>.active>a, .pagination>.active>a:hover {
+    background-color: rgba(0, 139, 203, 1);
+    color: #fff;
+    pointer-events: none;
+}
+
+.pagination>li>span, .pagination>li>a {
+    padding: .3em .6em .4em;
+    border: 1px solid rgba(0, 139, 203, .5);
+    text-decoration: none;
+    border-radius: 3px;
+    background-color: #fff;
+}
+
+.pagination>li>span:hover, .pagination>li>a:hover {
+    background-color: rgba(0, 139, 203, .2);
+}
+
+.pagination>li>a:hover {
+    color: rgba(0, 139, 203, 1);
+}
+
+.pagination>.disabled>span:hover {
+    background-color: #fff;
+}
+
+.pagination>.disabled>span {
+    cursor: not-allowed;
+}
+
 ::selection {background: #fff2a8;}
 ::-moz-selection {background: #fff2a8;}
 
@@ -210,6 +252,7 @@ ul.breadcrumb {
     display: block;
     list-style: none;
     font-size: 0.9em;
+    margin-bottom: 14px;
 }
 
 ul.breadcrumb li {
@@ -219,4 +262,9 @@ ul.breadcrumb li {
 ul.breadcrumb > li + li::before {
     padding: 0 5px;
     content: "\203a";
+}
+
+.post-info {
+    margin-bottom: 10px;
+    color: #999;
 }

@@ -3,6 +3,10 @@
 /* Style for classic theme
 /*
 /****************************/
+html, body {
+    height: 100%;
+}
+
 html {
     font-size: 14px;
     font-family: Verdana, Arial, sans-serif;
@@ -10,6 +14,7 @@ html {
 
 body {
     font-size: 100%;
+    color: #594F4F;
 }
 
 h1, h2, h3, h4, h5, h6 {font-weight: 700;}
@@ -20,16 +25,24 @@ h4 {font-size: 1.4em;}
 h5 {font-size: 1.2em;}
 h6 {font-size: 1em;}
 
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    text-decoration: none;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+    text-decoration: underline;
+}
+
 p {
     margin-bottom: 1em;
 }
 
 a {
-    color: #008bcb;
+    color: #547980;
 }
 
 a:hover {
-    color: #8cbf26;
+    color: #45ADA8;
 }
 
 input[type="text"], input[type="password"], textarea, select, div.CodeMirror {
@@ -78,6 +91,79 @@ label {
     font-weight: 700;
     display: inline-block;
 }
+
+/*==========================
+        Макет
+==========================*/
+.main {
+    min-height: 100%;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+
+.main-header {
+    background-color: #547980;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main-section {
+    width: 100%;
+    padding-right: 280px;
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+.main-aside {
+    width: 240px;
+    position: relative;
+    margin-left: -280px;
+    padding: 0 20px;
+    vertical-align: top;
+}
+
+.main-footer {
+    background-color: #547980;
+    height: 100px;
+    margin-top: -100px;
+    padding: 20px;
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+}
+
+.main-footer-height {
+    height: 100px;
+}
+
+.main-footer a {
+    color: #fff;
+    position: relative;
+    bottom: 0;
+}
+
+.main-header, .main-footer {
+    width: 100%;
+}
+
+.main-section, .main-aside {
+    display: inline-block;
+}
+
+.main-header-mini .logo {
+
+}
+
+/*==========================
+       Конец Макета
+==========================*/
+
 
 .button {
     display: inline-block;
@@ -189,42 +275,52 @@ div.form-group {
     cursor: not-allowed;
 }
 
-::selection {background: #fff2a8;}
-::-moz-selection {background: #fff2a8;}
+/*::selection {background: #fff2a8;}
+::-moz-selection {background: #fff2a8;}*/
 
-.wrapper {
-    width: 950px;
-    margin: auto;
-    overflow: hidden;
-    text-align: center;
-}
+::selection {background: #E5FCC2;}
+::-moz-selection {background: #E5FCC2;}
 
 .logo, .logo-footer {
     font-size: 2em;
     font-weight: bold;
-    color: #555;
+    color: #fff;
     text-align: left;
-    height: 50px;
-    padding-top: 11px;
+    margin-left: 20px;
 }
 
-ul.top-menu {
-    text-align: center;
-    margin: 20px auto;
+.logo>span {
+    display: block;
+    font-size: .5em;
+    font-weight: normal;
+    margin-left: 20px;
+    margin-top: 10px;
 }
 
-ul.top-menu li {
+.top-menu {
+    text-align: right;
+    margin: 20px auto 0;
+}
+
+.top-menu li {
     display: inline-block;
-    margin: 0 20px;
+    margin: 0 10px;
+    color: #fff;
+    font-family: "Arial Narrow", Verdana, Arial, sans-serif;
 }
 
-ul.top-menu {
-    font-size: 1.4em;
+.top-menu li a:hover {
+    color: #E5FCC2;
+    border-bottom: 1px solid #E5FCC2;
+}
+
+.top-menu a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
 }
 
 .page {
-    display: inline-block;
-    width: 700px;
     line-height: 1.5;
     text-align: left;
 }
@@ -242,10 +338,47 @@ ul.top-menu {
     margin-left: 1em;
 }
 
-.rightcolumn {
-    display: inline-block;
-    width: 200px;
-    float: right;
+.content img {
+    max-width: 100%;
+    display: block;
+    margin: 10px 15px 15px 0;
+}
+
+.portlet {
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0,0,0,.125);
+    color: #fff;
+}
+
+.portlet ul {
+    padding: 7px 0 10px;
+}
+
+.portlet li {
+    padding: 3px 10px;
+    /*border-bottom: 1px solid #ccc;*/
+}
+
+.portlet li:hover {
+    background-color: #eee;
+}
+
+.portlet .aside-category a {
+    display: block;
+    width: 100%;
+}
+
+.portlet h4 {
+    background-color: #547980;
+    display: block;
+    font-size: 1em;
+    font-weight: normal;
+    padding: 7px;
+    text-align: center;
+}
+
+.portlet .aside-category {
+
 }
 
 ul.breadcrumb {
@@ -264,7 +397,28 @@ ul.breadcrumb > li + li::before {
     content: "\203a";
 }
 
+.post {
+    border-bottom: 1px dashed #aaa;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+}
+
+.post + .post {
+
+}
+
 .post-info {
     margin-bottom: 10px;
     color: #999;
+}
+
+/*======================
+        Правый блок
+======================*/
+.main-aside {
+    line-height: 1.5;
+}
+
+.main-aside ul {
+    list-style: none;
 }

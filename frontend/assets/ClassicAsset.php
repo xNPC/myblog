@@ -22,6 +22,8 @@ class ClassicAsset extends AssetBundle
         'css/main.css',
     ];
     public $js = [
+        'js/jquery.sticky.js',
+        'js/main.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

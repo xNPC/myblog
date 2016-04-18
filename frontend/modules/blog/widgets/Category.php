@@ -34,8 +34,8 @@ class Category extends Widget
             ->OrderBy('name ASC')
             ->all();
 
-        echo '<b>'.Yii::t('blog', 'Categories').':</b>';
-        echo '<ul>';
+        echo '<h4>'.Yii::t('blog', 'Categories').'</h4>';
+        echo '<ul class="aside-category">';
 
         foreach ($Categories as $category) {
             echo '<li>'.Html::a(Html::encode($category->name),['/blog/default/category', 'category' => $category->alias]).'</li>';

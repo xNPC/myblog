@@ -6,6 +6,7 @@ return [
     'Blog'          =>  'Блог',
     'Categories'    =>  'Разделы',
     'Read more...'  =>  'Читать далее...',
+    'Tags'          => 'Метки',
 
     /**
      * Form

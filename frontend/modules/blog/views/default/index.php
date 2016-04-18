@@ -15,13 +15,15 @@ $this->params['breadcrumbs'][] = $category ? ['label' => Yii::t('blog', 'Blog'),
 $category ? $this->params['breadcrumbs'][] = $category : false ;
 
 ?>
-<div>
+
     <?php foreach($posts->getModels() as $post): ?>
+        <section id="post_<?= $post->id; ?>" class="post">
         <?= $this->render('_post', ['post' => $post]); ?>
+        </section>
     <?php endforeach; ?>
 
     <?php
         echo LinkPager::widget([
             'pagination' => $posts->getPagination(),
     ]);?>
-</div>
+

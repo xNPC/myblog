@@ -45,8 +45,8 @@ class Tags extends Widget
             ->limit($this->limit)
             ->all();
 
-        echo '<b>'.Yii::t('blog', 'Tags').':</b>';
-        echo '<ul>';
+        echo '<h4>'.Yii::t('blog', 'Tags').'</h4>';
+        echo '<ul class="aside-tags">';
 
         foreach ($tags as $tag) {
             echo '<li>'.Html::a(Html::encode($tag->name),['/blog/default/tags', 'tags' => $tag->name]).'</li>';
